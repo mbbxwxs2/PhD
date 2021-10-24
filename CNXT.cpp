@@ -183,13 +183,7 @@ double Calculation(int m, int n, double s, double r, double T, double t_0, doubl
 int main()
 {
     auto start = std::chrono::steady_clock::now();
-    //double kappa=1.5,theta=0.5,sigma=1,gamma=0.8, T=10, x0=0.1,t_0=0.01;//con1
-    //double kappa=1,theta=8,sigma=1.2,gamma=0.7, T=10, x0=5,t_0=0.01;//con2
-    //double kappa=0.5,theta=5,sigma=0.5,gamma=0.6, T=10, x0=4,t_0=0.01;//con3
-    //double kappa=1.5,theta=0.5,sigma=1,gamma=0.3, T=10, x0=2,t_0=0.01;//con4
-    //double kappa=1,theta=9,sigma=1.2,gamma=0.2, T=10, x0=7,t_0=0.01;//con5
     double kappa=0.5,theta=5,sigma=0.5,gamma=0.1, T=10, x0=4,t_0=0.01;//con6
-    //double kappa=1.5,theta=0.5,sigma=1,gamma=0.2, T=100, x0=0.2,t_0=0.01;//con7
     // declare and initialise grid paramaters
     int n=6400,m=400;
     double s=log(10);
@@ -215,7 +209,6 @@ int main()
     cout<<"Single time= "<<elapsed_1.count()<<endl;
     cout<<"u_e(x*,T)= "<<setprecision(10)<<single_point[n]<<"\n";
     cout<<"Total time= "<<elapsed.count()<<endl;
-    //cout<<"R= "<<setprecision(6)<<(single_point_2[n]-single_point_3[n])/(single_point_1[n]-single_point_2[n])<<endl;
     cout<<"R= "<<setprecision(6)<<(single_point_2[n]-single_point_3[n])/(single_point_1[n]-single_point_2[n])<<endl;
     cout<<"R= "<<setprecision(6)<<(single_point_2[3200]-single_point_3[3200])/(single_point_1[3200]-single_point_2[3200])<<endl;
     cout<<"R= "<<setprecision(6)<<(single_point_2[400]-single_point_3[400])/(single_point_1[400]-single_point_2[400])<<endl;
@@ -235,8 +228,6 @@ int main()
         //Transform v(X,T) to u(x,T)
         uNew[j]=exp(-2*gamma*X_1[j])*vNew[j];
         output <<exp(X_1[j]) <<"," << uNew[j]<<endl;
-        //output <<X[j] <<"," << vNew[j]<<endl;
-        //cout << "x: "<<X[j] <<", u(x,T)= " << uNew[j]<< "\n";
     }
     cout<<"The final conservation is "<<conservation_1[n]<<endl;
     output.close();
