@@ -150,13 +150,7 @@ int main()
 {
     auto start1 = std::chrono::steady_clock::now();
     // declare and initialise parameters
-    //double theta=1.5,mu=0.5,sigma=1,gamma=0.8, T=10, x0=0.1,t_0=0.01;//con1
-    //double theta=1,mu=8,sigma=1.2,gamma=0.7, T=10, x0=5, t_0=0.01;//con2
-    //double theta=0.5,mu=5,sigma=0.5,gamma=0.6, T=10, x0=4,t_0=0.01;//con3
-    //double theta=1.5,mu=0.5,sigma=1,gamma=0.3, T=10, x0=2,t_0=0.01;//con4
-    //double theta=1,mu=9,sigma=1.2,gamma=0.2, T=10, x0=7, t_0=0.01;//con5
     double theta=0.5,mu=5,sigma=0.5,gamma=0.1, T=10, x0=4,t_0=0.01;//con6
-    //double theta=1.5,mu=0.5,sigma=1,gamma=0.2, T=10, x0=0.2,t_0=0.01;//con7
     // declare and initialise grid paramaters
     int m=100,n=100;
     double s=10;
@@ -184,8 +178,6 @@ int main()
     cout<<"Single time= "<<elapsed_1.count()<<endl;
     cout<<"u_e(x*,T)= "<<setprecision(10)<<single_point[m]<<"\n";
     cout<<"Total time= "<<elapsed.count()<<endl;
-    //cout<<"R= "<<setprecision(6)<<(single_point_2[m]-single_point_3[m])/(single_point_1[m]-single_point_2[m])<<endl;
-    
     cout<<"u(x*,T)= "<<setprecision(10)<<single_point_1[n]<<"\n";
     cout<<"u(x*,T)= "<<setprecision(10)<<single_point_2[n]<<"\n";
     cout<<"u(x*,T)= "<<setprecision(10)<<single_point_3[n]<<"\n";
@@ -195,7 +187,6 @@ int main()
     cout<<"R= "<<setprecision(6)<<(single_point_2[2]-single_point_3[2])/(single_point_1[2]-single_point_2[2])<<endl;
     // finish looping through time levels
     ofstream output;
-    //output.open("/Users/sxd/Downloads/FP_SOR.csv");
     output.open("/Users/sxd/Downloads/FP_mid.csv");
     if (!output.is_open())
     {
@@ -206,7 +197,6 @@ int main()
     for (int j=0;j<=n;j++)
     {
         output <<X_1[j] <<"," << uNew_1[j]<<endl;
-        //    cout << "x: "<<X[j] <<", u(x,T)= " << uNew[j]<< "\n";
     }
     
     cout<<"The final conservation is "<<conservation_1[m]<<endl;
