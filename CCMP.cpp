@@ -1,10 +1,3 @@
-//
-//  main.cpp
-//  Fokker_Planck
-//
-//  Created by 宋晓东 on 30/06/2020.
-//  Copyright © 2020 Xiaodong Song. All rights reserved.
-//
 #include <iostream>
 #include <fstream>
 #include <cmath>
@@ -79,13 +72,7 @@ int main()
 {
     auto start1 = std::chrono::steady_clock::now();
     // declare and initialise parameters
-    //double theta=1.5,mu=0.5,sigma=1,gamma=0.8, T=10, x0=0.1,t_0=0.01;//con1
-    //double theta=1,mu=8,sigma=1.2,gamma=0.7, T=10, x0=5, t_0=0.01;//con2
-    //double theta=0.5,mu=5,sigma=0.5,gamma=0.6, T=10, x0=4,t_0=0.01;//con3
-    //double theta=1.5,mu=0.5,sigma=1,gamma=0.3, T=10, x0=2,t_0=0.01;//con4
-    //double theta=1,mu=9,sigma=1.2,gamma=0.2, T=10, x0=7, t_0=0.01;//con5
-    //double theta=0.5,mu=5,sigma=0.5,gamma=0.1, T=10, x0=4,t_0=0.01;//con6
-    double theta=1.5,mu=0.5,sigma=1,gamma=0.2, T=10, x0=0.2,t_0=0.01;//con7
+    double theta=1.5,mu=0.5,sigma=1,gamma=0.2, T=10, x0=0.2,t_0=0.01;
     // declare and initialise grid paramaters
     int m=1000,n=500;
     double s=10;
@@ -179,7 +166,6 @@ int main()
     for (int j=0;j<=n;j++)
     {
         output <<X[j] <<"," << uNew[j]<<endl;
-        //    cout << "x: "<<X[j] <<", u(x,T)= " << uNew[j]<< "\n";
     }
     
     cout<<"The final conservation is "<<conservation[m]<<endl;
