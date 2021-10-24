@@ -86,9 +86,6 @@ double calculation(int n, int m, double kappa, double theta, double sigma, doubl
         C[j]=pow(sigma,2)/2*exp(-X[j]-0.5*dx); //C[0 - m] stand for C_0, 1, ..., m
         omega[j]=dx*B/C[j];
         W[j]=omega[j]/(exp(omega[j])-1); //W[0 - m] stand for W_0, ..., m
-        //_______________________________________________________________________________//
-        //double delta=1/omega[j]-1/(exp(omega[j])-1);
-        //if (delta>0.5 || delta<0) cout<<"j= "<<j<<", delta= "<<delta<<endl;
     }
     X[m]=s;
     A[m]=exp((1-2*gamma)*X[m]);
@@ -105,7 +102,6 @@ double calculation(int n, int m, double kappa, double theta, double sigma, doubl
         vNew[j]=vNew[j]/(1-conservation[0]);
     }
     conservation[0]=1-monitor(m,vNew,A)*dx;
-    //cout<<"Energy Loss= "<<conservation[0]<<endl;
     // start looping through time levels
     vector<double> a_tile(m+1),b_tile(m+1),c_tile(m+1),d_tile(m+1);
     
@@ -147,13 +143,7 @@ double calculation(int n, int m, double kappa, double theta, double sigma, doubl
 int main()
 {
     auto start = std::chrono::steady_clock::now();
-    //double kappa=1.5,theta=0.5,sigma=1,gamma=0.8, T=10, x0=0.1,t_0=0.01;//con1
-    //double kappa=1,theta=8,sigma=1.2,gamma=0.7, T=10, x0=5,t_0=0.01;//con2
-    //double kappa=0.5,theta=5,sigma=0.5,gamma=0.6, T=10, x0=4,t_0=0.01;//con3
-    //double kappa=1.5,theta=0.5,sigma=1,gamma=0.3, T=10, x0=2,t_0=0.01;//con4
-    //double kappa=1,theta=9,sigma=1.2,gamma=0.2, T=10, x0=7,t_0=0.01;//con5
     double kappa=0.5,theta=5,sigma=0.5,gamma=0.1, T=10, x0=4,t_0=0.01;//con6
-    //double kappa=1.5,theta=0.5,sigma=1,gamma=0.2, T=10, x0=0.2,t_0=0.01;//con7
     // declare and initialise grid paramaters
     int n=6400,m=3200;
     double s=log(10);
@@ -203,8 +193,6 @@ int main()
     {
         uNew[j]=exp((-2*gamma)*X_1[j])*vNew_1[j];
         output <<exp(X_1[j]) <<"," << uNew[j]<<endl;
-        //output <<X[j] <<"," << vNew[j]<<endl;
-        //cout << "x: "<<X[j] <<", u(x,T)= " << uNew[j]<< "\n";
     }
     cout<<"The final conservation is "<<conservation_1[n]<<endl;
     output.close();
