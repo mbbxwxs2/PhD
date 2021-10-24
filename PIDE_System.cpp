@@ -1,10 +1,3 @@
-//
-//  main.cpp
-//  Fokker_Planck
-//
-//  Created by 宋晓东 on 30/06/2020.
-//  Copyright © 2020 Xiaodong Song. All rights reserved.
-//
 #include <iostream>
 #include <fstream>
 #include <sstream>
